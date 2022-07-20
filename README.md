@@ -1,4 +1,4 @@
 # demodoc
 ## Example usage
 
-uses: actions/demodoc@v1
+uses: LChaudhari/demodoc@v1
