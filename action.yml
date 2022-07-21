@@ -59,8 +59,8 @@ outputs:
   tags:
     description: "Tags for the Docker image"
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: "node12"
+  main: "dist/index.js"
 branding:
   icon: "anchor"
   color: "blue"
