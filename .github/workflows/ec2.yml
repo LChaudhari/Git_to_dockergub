@@ -15,7 +15,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
-    - uses: mr-smithers-excellent/docker-build-push@v5
+    - uses: LChaudhari/demodoc@v5
       with:
         image: "dockerdemo"
         registry: 018442532737.dkr.ecr.us-east-1.amazonaws.com
