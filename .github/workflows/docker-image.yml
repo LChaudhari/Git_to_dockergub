@@ -16,7 +16,7 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
     - uses: LChaudhari/demodoc@v5
-      name: Build & push Docker images
+      name: build
       with:
         image: lalit2656/my_repo_git
         tags: dockerimage
