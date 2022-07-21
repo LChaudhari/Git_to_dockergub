@@ -1,4 +1,4 @@
 # demodoc
 ## Example usage
 
-uses: LChaudhari/demodoc@v2
+uses: LChaudhari/demodoc@v5
