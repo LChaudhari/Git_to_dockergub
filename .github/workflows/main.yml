@@ -11,5 +11,8 @@ jobs:
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
+      - name: Execute Permissiom
+        run: chmod +x entrypoint.sh
+        
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was ${{ steps.hello.outputs.time }}" 
