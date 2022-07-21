@@ -20,6 +20,6 @@ jobs:
       with:
         image: lalit2656/my_repo_git
         tags: v2
-        registry: docker.io
+        registry: registry-url.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
