@@ -18,7 +18,7 @@ jobs:
         run: echo Hello, world!
   DeployDev:
     name: Deploy to dev
-    if: github.event_name == "push_request"
+    if: github.event_name == "pull_request"
     needs: [Build]
     runs-on: ubuntu-latest
     environment:
