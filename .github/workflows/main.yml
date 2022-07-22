@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Complie
+        run: echo Hello, world!
+  DeployDev:
+    name: Deploy to dev
+    if: github.event_name == "push_request"
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: index.php
+    steps:
+    - name: deploy
+      run: echo I am running
+      
+  DeployStaging:
+    name: Deploy to Staging
+    if: github.event_ref == "./"
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: index.php
+    steps:
+    - name: deploy
+      run: echo I am running
+      
+  DeployProduction:
+    name: Deploy to Production
+    needs: [DeployStaging]
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: index.php
+    steps:
+    - name: deploy
+      run: echo I am running
+    
+      
