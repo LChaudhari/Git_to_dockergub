@@ -24,19 +24,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         
-  DeployDev:
-    name: Deploy to dev
-    if: github.event_name == "push_request"
-    needs: [build]
-    runs-on: ubuntu-latest
-    environment:
-      name: build
-      url: index.php
-    steps:
-    - name: deploy
-      run: echo I am running
-    
-    
-      
-    
-    
+        
