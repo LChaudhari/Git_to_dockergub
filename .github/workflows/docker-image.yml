@@ -16,7 +16,7 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
  
   
-    - uses: LChaudhari/demodoc@v5
+    - uses: LChaudhari/Git_to_dockergub @v5
       name: Build and push to docker hub
       with:
         file: ./Dockerfile
