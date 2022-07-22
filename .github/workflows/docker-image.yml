@@ -27,7 +27,7 @@ jobs:
   DeployDev:
     name: Deploy to dev
     if: github.event_name == "pull_request"
-    needs: build
+    needs: [build]
     runs-on: ubuntu-latest
     environment:
       name: build
