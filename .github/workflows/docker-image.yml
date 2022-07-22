@@ -23,6 +23,7 @@ jobs:
     - uses: LChaudhari/demodoc@v5
       name: Build and push to docker hub
       with:
+        file: ./Dockerfile
         image: lalit2656/my_repo_git
         tags: dockerimage
         registry: docker.io
