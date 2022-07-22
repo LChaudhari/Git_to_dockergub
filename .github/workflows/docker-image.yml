@@ -16,10 +16,27 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       
     - uses: LChaudhari/demodoc@v5
-      name: build
+      name: Build and push to docker hub
       with:
         image: lalit2656/my_repo_git
         tags: dockerimage
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        
+  DeployDev:
+    name: Deploy to dev
+    if: github.event_name == "pull_request"
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: build
+      url: index.php
+    steps:
+    - name: deploy
+      run: echo I am running
+    
+    
+      
+    
+    
