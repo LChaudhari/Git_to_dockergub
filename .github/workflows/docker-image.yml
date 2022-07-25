@@ -35,7 +35,7 @@ jobs:
         
   Prod:
     runs-on: ubuntu-latest
-    environment: LChaudhari
+    environment: ${{ secrets.ENVIRONMNET }}
     needs: build
     steps:
     - uses: actions/checkout@v3
