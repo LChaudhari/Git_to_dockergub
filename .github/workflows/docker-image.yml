@@ -3,11 +3,11 @@
   #  branches: [ "master" ]
   #pull_request:
    # branches: [ "master" ]
-
+name: "Approval Flow"
 on:
   workflow_dispatch:
     inputs:
-      name:
+      name: 
         description: "Enter Reviewer name"
         default: "LChaudhari"
         required: true
