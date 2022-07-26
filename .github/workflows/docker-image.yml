@@ -11,8 +11,8 @@ on:
         type: choice
         description: "Enter Reviewer name"
         options: 
-        - dockerhub
-        - AWSECR
+        - Push to DockerHub
+        - Push to AWSECR
         default: Build and push to docker hub
         #required: true
 jobs:
@@ -28,7 +28,7 @@ jobs:
  
   
     - name: Build and push to docker hub
-      if: github.event.inputs.name == 'dockerhub'
+      if: github.event.inputs.name == 'Push to DockerHub'
       uses: LChaudhari/Git_to_dockergub@v5
       
       with:
@@ -42,7 +42,7 @@ jobs:
       
       
     - name: Build and Push to AWS ECR
-      if: github.event.inputs.name == 'AWSECR'
+      if: github.event.inputs.name == 'Push to AWSECR'
       uses: LChaudhari/Git_to_dockergub@v5
       
       with:
