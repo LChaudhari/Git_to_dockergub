@@ -9,7 +9,7 @@ on:
     inputs:
       name:
         description: "Enter Reviewer name"
-        default: "LChaudhari"
+        #default: "LChaudhari"
         required: false
 jobs:
 
