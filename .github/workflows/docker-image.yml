@@ -8,7 +8,11 @@ on:
   workflow_dispatch:
     inputs:
       name: 
+        type: choice
         description: "Enter Reviewer name"
+        options: 
+        - "dockerdemo"
+        - lalit2656/my_repo_git
         default: "LChaudhari"
         required: true
 jobs:
@@ -27,15 +31,24 @@ jobs:
       name: Build and push to docker hub
       with:
         file: ./Dockerfile
-        image: lalit2656/my_repo_git
+        image: ${{ github.event.inputs.name}}
         tags: dockerimage
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         
+    - uses: LChaudhari/Git_to_dockergub@v5
+      with:
+        image: ${{ github.event.inputs.name}}
+        registry: 018442532737.dkr.ecr.us-east-1.amazonaws.com
+      env:
+        name: build
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
   Prod:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.name}}
+    environment: "LChaudhari"    #${{ github.event.inputs.name}}
     needs: build
     steps:
     - uses: actions/checkout@v3
