@@ -10,7 +10,7 @@ on:
       name:
         description: "Enter Reviewer name"
         default: "LChaudhari"
-        required: true
+        required: false
 jobs:
 
   build:
