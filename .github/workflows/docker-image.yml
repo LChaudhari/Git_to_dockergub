@@ -11,8 +11,8 @@ on:
         type: choice
         description: "Enter Reviewer name"
         options: 
+        - "lalit2656/my_repo_git"
         - "dockerdemo"
-        - lalit2656/my_repo_git
         default: "LChaudhari"
         required: true
 jobs:
