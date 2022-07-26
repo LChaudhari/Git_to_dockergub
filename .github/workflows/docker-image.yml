@@ -13,8 +13,8 @@ on:
         options: 
         - Build and push to docker hub
         - Build and Push to AWS ECR
-        default: "LChaudhari"
-        required: true
+        default: Build and push to docker hub
+        #required: true
 jobs:
 
   deploy:
