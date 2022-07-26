@@ -1,20 +1,20 @@
-#on:
- # push:
-  #  branches: [ "master" ]
-  #pull_request:
-   # branches: [ "master" ]
-name: "Approval Flow"
 on:
-  workflow_dispatch:
-    inputs:
-      name: 
-        type: choice
-        description: "Enter Reviewer name"
-        options: 
-        - "lalit2656/my_repo_git"
-        - "dockerdemo"
-        default: "LChaudhari"
-        required: true
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+#name: "Approval Flow"
+#on:
+ # workflow_dispatch:
+  #  inputs:
+   #   name: 
+    #    type: choice
+     #   description: "Enter Reviewer name"
+      #  options: 
+       # - "lalit2656/my_repo_git"
+        #- "dockerdemo"
+        #default: "LChaudhari"
+        #required: true
 jobs:
 
   build:
@@ -31,7 +31,7 @@ jobs:
       name: Build and push to docker hub
       with:
         file: ./Dockerfile
-        image: ${{ github.event.inputs.name}}
+        image: "lalit2656/my_repo_git"
         tags: dockerimage
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
@@ -39,7 +39,7 @@ jobs:
         
     - uses: LChaudhari/Git_to_dockergub@v5
       with:
-        image: ${{ github.event.inputs.name}}
+        image: "dockerdemo"
         registry: 018442532737.dkr.ecr.us-east-1.amazonaws.com
       env:
         name: build
