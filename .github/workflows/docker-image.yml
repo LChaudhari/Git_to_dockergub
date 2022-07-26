@@ -5,12 +5,12 @@ on:
     branches: [ "master" ]
 
 #on:
- # workflow_dispatch:
-  #  inputs:
-   #   name:
-    #    description: "Enter value"
-     #   default: "environment"
-      #  required: true
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter Reviewer name"
+        default: "LChaudhari"
+        required: true
 jobs:
 
   build:
@@ -35,7 +35,7 @@ jobs:
         
   Prod:
     runs-on: ubuntu-latest
-    environment: LChaudhari
+    environment: ${{ github.event.inputs.name}}
     needs: build
     steps:
     - uses: actions/checkout@v3
