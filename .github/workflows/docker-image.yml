@@ -28,7 +28,7 @@ jobs:
  
   
     - name: Build and push to docker hub
-      if: github.event.inputs.options == 'dockerhub'
+      if: github.event.inputs.name == 'dockerhub'
       uses: LChaudhari/Git_to_dockergub@v5
       
       with:
@@ -42,7 +42,7 @@ jobs:
       
       
     - name: Build and Push to AWS ECR
-      if: github.event.inputs.options == 'AWSECR'
+      if: github.event.inputs.name == 'AWSECR'
       uses: LChaudhari/Git_to_dockergub@v5
       
       with:
